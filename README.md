@@ -58,7 +58,7 @@ The following **known issues**:
 
 Here's a walkthrough of implemented user stories:
 
-![Video Walkthrough](http://i.imgur.com/bSrx9jG.gifv)
+![Video Walkthrough](http://i.imgur.com/bSrx9jG.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
