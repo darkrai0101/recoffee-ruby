@@ -6,7 +6,7 @@ Submitted by: **Nguyen Van Trung**
 
 Time spent: **16** hours spent in total
 
-URL: **https://mysterious-lake-22839.herokuapp.com/menu**
+URL: **https://mysterious-lake-22839.herokuapp.com**
 
 ## User Stories
 
