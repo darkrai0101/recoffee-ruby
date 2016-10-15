@@ -1,0 +1,8 @@
+<div class="home-content">
+	<h4>Thank <%= @order.name %> for your order</h4>
+	<h3>Order infomation:</h3>
+	<p>Name<%= @order.name %></p>
+	<p>Phone: <%= @order.phone %></p>
+	<p>Address: <%= @order.address %></p>
+	<p>Total: <%= number_to_currency @order.subtotal %></p>
+</div>

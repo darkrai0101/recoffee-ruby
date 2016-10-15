@@ -1,0 +1,37 @@
+<table class="menu-bar">
+	<tr>
+		<td><a href="/menu" class="<%= 'active' if !params[:section] %>">All</a></td>
+		<% Section.all.each do |section| %>
+			<td><%= link_to section.name, menu_path(section: section.name), class: "#{'active' if params[:section] === section.name}" %></td>  
+		<% end %>
+	</tr>
+</table>
+<%= form_tag nil, method: 'get' do %>
+<table class="sort-bar">
+	<tr>
+		<%= hidden_field_tag :section, params[:section] %>
+		<td><%= select_tag :sort_alphabet, "<option value='0'>Name..</option><option value='1'>Name Asc</option><option value='2'>Name Desc</option>".html_safe, class: 'form-control' %></td>
+		<td><%= select_tag :sort_price, "<option value='0'>Price..</option><option value='1'>Highest Price</option><option value='2'>Lowest Price</option>".html_safe, class: 'form-control' %></td>
+		<td><%= select_tag :sort_view, "<option value='0'>Viewed..</option><option value='1'>Most Viewed</option>".html_safe, class: 'form-control' %></td>
+		<td><%= select_tag :sort_review, options_for_select([['Review...', 0], ['Best Review', 1]]), class: 'form-control' %></td>
+		<td><%= submit_tag "Sort", class: "btn btn-outline-secondary"%></td>
+	</tr>
+</table>
+<% end %>
+<div class="row">		
+	<% @food_items.each do |item| %>				
+		<div class="card food-item">
+		  	<img class="card-img-top" src="<%= item.image_url %>" alt="">
+		    <div class="card-block">
+		  	<%= form_for @order_item, remote: true do |f| %>
+			    <h4 class="card-title"><%= link_to item.name, item %></h4>
+			    <p class="card-text"><small class="text-muted"><%= number_to_currency item.price %> VNĐ</small></p>
+			    <p class="card-text"><%= item.description[0..130] %></p>
+		    	<%= f.hidden_field :quantity, value: 1, class: "form-control", min: 1 %>
+		    	<%= f.hidden_field :food_item_id, value: item.id %>
+		    	<%= f.submit "Add to Cart", class: "btn btn-primary" %>
+		    <% end %>
+		  </div>
+		</div>		
+	<% end %>
+</div>

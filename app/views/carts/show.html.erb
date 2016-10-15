@@ -1,0 +1,28 @@
+<div class="shopping-cart card">
+  <%= render "shopping_cart" %>
+</div>
+<%= form_for current_order, :url => order_update_path(current_order.id), :html => {:method => :patch} do |f| %>	
+<div class="row">	
+	<div class="col-xs-6">	
+	  <div class="info-cart card">
+	    <div class="form-group">
+	      <label for="name">Your Name</label>
+	      <%= f.text_field :name, class: "form-control" %>
+	    </div>
+	    <div class="form-group">
+	      <label for="phone">Phone number</label>
+	      <%= f.text_field :phone, class: "form-control" %>
+	    </div>
+	    <div class="form-group">
+	      <label for="address">Address</label>
+	      <%= f.text_field :address, class: "form-control" %>
+	    </div>	    
+	    <%= f.hidden_field :id, value: current_order.id %>
+	    <%= f.hidden_field :subtotal, value: current_order.subtotal %>
+	  </div>
+	</div>
+	<div class="col-xs-6">
+		<center><%= f.submit "CHECKOUT", class: "btn btn-success btn-lg" %></center>
+	</div>
+</div>
+<% end %>
