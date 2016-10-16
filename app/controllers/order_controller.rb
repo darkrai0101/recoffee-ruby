@@ -1,6 +1,7 @@
 class OrderController < ApplicationController
   def update
-  	@order = current_order;
+  	@order = current_order
+  	@order_items = @order.order_items
   	@order.update(order_params)
   end
 private

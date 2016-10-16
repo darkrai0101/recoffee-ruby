@@ -148,3 +148,23 @@ form#search-form {
 .info-cart{
 	padding: 40px;
 }
+.order-info{
+	.row{
+		width: 60%;
+		text-align: left;
+		padding-top: 50px;
+		padding-bottom: 20px;
+    	border: 1px solid;
+    	margin: auto;
+    	.col-xs-6:first-child{
+    		border-right: 1px solid;
+    	}
+		span{
+			width: 200px;
+			text-align: right;
+		}
+		ul li {
+			list-style: none;
+		}
+	}
+}

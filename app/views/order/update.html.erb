@@ -1,8 +1,21 @@
-<div class="home-content">
+<div class="home-content order-info">
 	<h4>Thank <%= @order.name %> for your order</h4>
 	<h3>Order infomation:</h3>
-	<p>Name<%= @order.name %></p>
-	<p>Phone: <%= @order.phone %></p>
-	<p>Address: <%= @order.address %></p>
-	<p>Total: <%= number_to_currency @order.subtotal %></p>
+	<div class="row">
+		<div class="col-xs-6">
+			<p><span>Name:</span> <%= @order.name %></p>
+			<p><span>Phone:</span> <%= @order.phone %></p>
+			<p><span>Address:</span> <%= @order.address %></p>		
+		</div>
+		<div class="col-xs-6">
+			<p>List item:</p>
+			<ul>
+			<% @order_items.each do |item| %>
+				<li><%= item.food_item.name %></li>
+			<% end %>
+			</ul>
+			<p><b>Total: <%= number_to_currency @order.subtotal %></b></p>	
+		</div>
+	</div>	
+	<a href="/menu"><button type="button" class="btn btn-outline-info btn-lg">BACK</button></a>
 </div>
