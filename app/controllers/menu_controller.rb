@@ -7,7 +7,7 @@ class MenuController < ApplicationController
 	  		@section = Section.where(name: params[:section]).first
 	  		@food_items = @section.food_items
 	  	else
-	  		@food_items = FoodItem.all.order('id DESC')
+	  		@food_items = FoodItem.all
 	  	end
 	end
 
@@ -23,15 +23,16 @@ class MenuController < ApplicationController
 	end
 	if params[:sort_price] === '2'
 	  @food_items = @food_items.order('price')
+	end	
+
+	if params[:sort_view] === '1'
+	  @food_items = @food_items.order('view DESC')
 	end
-
-	@order_item = current_order.order_items.new
-
-	# if params[:sort_view] === '1'
+	
+	# if params[:sort_review] === '2'
 	#   @food_items = @food_items.order('view')
 	# end
-	# if params[:sort_review] === '1'
-	#   @food_items = @food_items.order('review')
-	# end
+
+	@order_item = current_order.order_items.new
   end
 end
