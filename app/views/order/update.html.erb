@@ -15,8 +15,8 @@
 			<% end %>
 			</ul>
 			<p><b>Total: <%= number_to_currency @order.total %></b></p>	
-			<% if @order.discount > 0 %>
-				<p class="discount">Bạn đã được giảm <%= number_to_currency @order.discount%> trong đơn hàng</p>
+			<% if !@order.discount.nil? and  @order.discount > 0 %>
+				<p class="discount">Bạn đã được giảm <%= number_to_currency @order.discount %> trong đơn hàng</p>
 			<% end %>
 		</div>
 	</div>	
