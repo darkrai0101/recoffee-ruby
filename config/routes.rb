@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]
-  resources :food_items
+  resources :food_items do
+    resources :comments
+  end
   resources :order
   get 'index/index'
 
