@@ -14,7 +14,10 @@
 				<li><%= item.food_item.name %></li>
 			<% end %>
 			</ul>
-			<p><b>Total: <%= number_to_currency @order.subtotal %></b></p>	
+			<p><b>Total: <%= number_to_currency @order.total %></b></p>	
+			<% if @order.discount > 0 %>
+				<p class="discount">Bạn đã được giảm <%= number_to_currency @order.discount%> trong đơn hàng</p>
+			<% end %>
 		</div>
 	</div>	
 	<a href="/menu"><button type="button" class="btn btn-outline-info btn-lg">BACK</button></a>

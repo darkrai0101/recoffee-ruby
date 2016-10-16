@@ -159,12 +159,17 @@ form#search-form {
     	.col-xs-6:first-child{
     		border-right: 1px solid;
     	}
-		span{
-			width: 200px;
-			text-align: right;
+		span{			
+			width: 70px;
+		    text-align: left;
+		    float: left
 		}
 		ul li {
 			list-style: none;
 		}
+	}
+	.discount{
+		font-style: italic;
+    	color: #4CAF50;
 	}
 }
